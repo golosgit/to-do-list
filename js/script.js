@@ -14,10 +14,20 @@
     },
   ];
 
+  const clearInputElement = () => {
+    document.querySelector(".js-newJob").value = "";
+  };
+
+  const setFocus = (newTaskListJob) => {
+    newTaskListJob.focus();
+  };
+
   const addNewJob = (newTaskListJob) => {
     taskList.push({
-      job: newTaskListJob,
+      job: newTaskListJob.value.trim(),
     });
+    clearInputElement();
+    setFocus(newTaskListJob);
     render();
   };
 
@@ -34,9 +44,10 @@
   const onFormSubmit = (event) => {
     event.preventDefault();
 
-    const newTaskListJob = document.querySelector(".js-newJob").value.trim();
+    const newTaskListJob = document.querySelector(".js-newJob");
 
-    if (newTaskListJob === "") {
+    if (newTaskListJob.value.trim() === "") {
+      setFocus(newTaskListJob);
       return;
     }
 
