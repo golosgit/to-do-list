@@ -26,6 +26,11 @@
     render();
   };
 
+  const changeJobState = (jobIndex) => {
+    taskList[jobIndex].status = !taskList[jobIndex].status;
+    render();
+  };
+
   const onFormSubmit = (event) => {
     event.preventDefault();
 
@@ -44,8 +49,9 @@
     for (const task of taskList) {
       htmlListString += `<li 
       ${task.status ? 'class="list__itemLineThrough"' : ""}>
-      <button class="js-removeJob">Usuń</button>
+      <button class="js-done">Czy zrobione?</button>
       ${task.job}
+      <button class="js-removeJob">Usuń</button>
       </li>`;
     }
 
@@ -56,6 +62,14 @@
     removeButtons.forEach((removeButton, jobIndex) => {
       removeButton.addEventListener("click", () => {
         removeJob(jobIndex);
+      });
+    });
+
+    const changeJobStateButtons = document.querySelectorAll(".js-done");
+    
+    changeJobStateButtons.forEach((changeJobStateButton, jobIndex) => {
+      changeJobStateButton.addEventListener("click", () => {
+        changeJobState(jobIndex);
       });
     });
   };
