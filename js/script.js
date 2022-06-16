@@ -43,6 +43,23 @@
     addNewJob(newTaskListJob);
   };
 
+  const bindEvents = () => {
+    const removeButtons = document.querySelectorAll(".js-removeJob");
+    const changeJobStateButtons = document.querySelectorAll(".js-done");
+
+    removeButtons.forEach((removeButton, jobIndex) => {
+      removeButton.addEventListener("click", () => {
+        removeJob(jobIndex);
+      });
+    });
+
+    changeJobStateButtons.forEach((changeJobStateButton, jobIndex) => {
+      changeJobStateButton.addEventListener("click", () => {
+        changeJobState(jobIndex);
+      });
+    });
+  };
+
   const render = () => {
     let htmlListString = "";
 
@@ -57,21 +74,7 @@
 
     document.querySelector(".js-taskList").innerHTML = htmlListString;
 
-    const removeButtons = document.querySelectorAll(".js-removeJob");
-
-    removeButtons.forEach((removeButton, jobIndex) => {
-      removeButton.addEventListener("click", () => {
-        removeJob(jobIndex);
-      });
-    });
-
-    const changeJobStateButtons = document.querySelectorAll(".js-done");
-    
-    changeJobStateButtons.forEach((changeJobStateButton, jobIndex) => {
-      changeJobStateButton.addEventListener("click", () => {
-        changeJobState(jobIndex);
-      });
-    });
+    bindEvents();
   };
 
   const init = () => {
