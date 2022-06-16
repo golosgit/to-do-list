@@ -21,6 +21,11 @@
     render();
   };
 
+  const removeJob = (jobIndex) => {
+    taskList.splice(jobIndex, 1);
+    render();
+  };
+
   const onFormSubmit = (event) => {
     event.preventDefault();
 
@@ -38,9 +43,21 @@
 
     for (const task of taskList) {
       htmlListString += `<li 
-      ${task.status ? 'class="list__itemLineThrough"' : ""}>${task.job}</li>`;
+      ${task.status ? 'class="list__itemLineThrough"' : ""}>
+      <button class="js-removeJob">Usuń</button>
+      ${task.job}
+      </li>`;
     }
+
     document.querySelector(".js-taskList").innerHTML = htmlListString;
+
+    const removeButtons = document.querySelectorAll(".js-removeJob");
+
+    removeButtons.forEach((removeButton, jobIndex) => {
+      removeButton.addEventListener("click", () => {
+        removeJob(jobIndex);
+      });
+    });
   };
 
   const init = () => {
