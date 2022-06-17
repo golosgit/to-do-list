@@ -1,0 +1,24 @@
+.form {
+  padding: 15px;
+}
+
+.form__input {
+  line-height: 2em;
+}
+
+.form__button {
+  background-color: teal;
+  color: #eee;
+  border: 2px solid teal;
+  height: 2.5em;
+}
+
+.form__button:hover {
+  background-color: hsl(180, 100%, 30%);
+  border-color: hsl(180, 100%, 30%);
+}
+
+.form__button:active {
+  border-color: #333;
+  border-radius: 2px;
+}

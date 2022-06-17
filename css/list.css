@@ -1,3 +1,47 @@
-.list__itemLineThrough {
-    text-decoration: line-through;
+.list {
+  list-style-type: none;
+}
+
+.list__item {
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+}
+
+.list__item--lineThrough {
+  text-decoration: line-through;
+}
+
+.list__button {
+  height: 30px;
+  width: 30px;
+  color: white;
+  vertical-align: middle;
+}
+
+.list__button--remove {
+  background-color: red;
+  border: 1px solid red;
+}
+
+.list__button--remove:hover {
+  background-color: hsl(0, 100%, 65%);
+  border-color: hsl(0, 100%, 65%);
+}
+
+.list__button--remove:active {
+  border-color: #333;
+}
+
+.list__button--toggle {
+  background-color: green;
+  border: 1px solid green;
+}
+
+.list__button--toggle:hover {
+  background-color: hsl(120, 100%, 30%);
+  border-color: hsl(120, 100%, 30%);
+}
+
+.list__button--toggle:active {
+  border-color: #333;
 }

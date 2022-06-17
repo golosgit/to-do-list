@@ -7,18 +7,35 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
         integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <title>Lista zadań</title>
     <link href="css/style.css" rel="stylesheet">
     <link href="css/list.css" rel="stylesheet">
+    <link href="css/form.css" rel="stylesheet">
     <script defer src="js/script.js"></script>
 </head>
 
 <body>
-    <form class="js-form">
-        <input class="js-newJob" autofocus placeholder="Co jest do zrobienia?">
-        <button>Dodaj zadanie</button>
-    </form>
-    <ul class="js-taskList"></ul>
+    <div class="header">
+        <section>
+            <h1>Lista zadań</h1>
+        </section>
+    </div>
+    <div class="addTask">
+        <section>
+            <h3 class="secondaryHeader">Dodaj nowe zadanie</h2>
+                <form class="form js-form ">
+                    <input class="form__input js-newJob" autofocus placeholder="Co jest do zrobienia?">
+                    <button class="form__button">Dodaj zadanie</button>
+                </form>
+        </section>
+    </div>
+    <div class="taskList">
+        <section>
+            <h3 class="secondaryHeader">Lista zadań</h2>
+                <ul class="list js-taskList"></ul>
+        </section>
+    </div>
 </body>
 
 </html>

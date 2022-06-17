@@ -75,11 +75,10 @@
     let htmlListString = "";
 
     for (const task of taskList) {
-      htmlListString += `<li 
-      ${task.status ? 'class="list__itemLineThrough"' : ""}>
-      <button class="js-done">Czy zrobione?</button>
+      htmlListString += `<li  class="list__item ${task.status ? 'list__item--lineThrough"' : '"'}>
+      <button class="list__button list__button--toggle js-done">${task.status ? "✓" : ""}</button>
       ${task.job}
-      <button class="js-removeJob">Usuń</button>
+      <button class="list__button list__button--remove js-removeJob">🗑</button>
       </li>`;
     }
 
