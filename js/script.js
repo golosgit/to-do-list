@@ -77,8 +77,7 @@
     for (const task of taskList) {
       htmlListString += `<li  class="list__item">
       <button class="list__button list__button--toggle js-done">${task.status ? "✓" : ""}</button>
-      <span class="list__text ${task.status ? 'list__text--lineThrough"' : '"'
-      }>${task.job}</span>
+      <span class="list__text ${task.status ? "list__text--lineThrough" : ""}">${task.job}</span>
       <button class="list__button list__button--remove js-removeJob">🗑</button>
       </li>`;
     }
