@@ -9,13 +9,11 @@
   padding: 10px;
   display: grid;
   grid-template-columns: 30px 1fr 30px;
+  grid-gap: 15px;
+  align-items: center;
 }
 
-.list__text {
-  padding: 2px 10px;
-}
-
-.list__text--lineThrough {
+.list__textLineThrough {
   text-decoration: line-through;
 }
 
@@ -40,17 +38,17 @@
   border-radius: 2px;
 }
 
-.list__button--toggle {
+.list__button--toggleTask {
   background-color: green;
   border: 2px solid green;
 }
 
-.list__button--toggle:hover {
+.list__button--toggleTask:hover {
   background-color: hsl(120, 100%, 30%);
   border-color: hsl(120, 100%, 30%);
 }
 
-.list__button--toggle:active {
+.list__button--toggleTask:active {
   border-color: #333;
   border-radius: 2px;
 }
