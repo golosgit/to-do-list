@@ -18,7 +18,7 @@ body {
 
 .secondaryHeader {
   border-bottom: 1px solid #ddd;
-  padding: 15px;
+  padding: 15px 20px;
   margin-bottom: 0;
 }
 
@@ -28,4 +28,5 @@ body {
 
 .taskList {
   background-color: white;
+  padding-bottom: 20px;
 }
