@@ -1,18 +1,5 @@
 {
-  const taskList = [
-    {
-      job: "test",
-      status: true,
-    },
-    {
-      job: "zadanie 2",
-      status: false,
-    },
-    {
-      job: "zadanie 3",
-      status: true,
-    },
-  ];
+  const taskList = [];
 
   const clearInputElement = () => {
     document.querySelector(".js-newJob").value = "";
@@ -25,6 +12,7 @@
   const addNewJob = (newTaskListJob) => {
     taskList.push({
       job: newTaskListJob.value.trim(),
+      status: false,
     });
     clearInputElement();
     setFocus(newTaskListJob);
@@ -75,10 +63,11 @@
     let htmlListString = "";
 
     for (const task of taskList) {
-      htmlListString += `<li  class="list__item">
-      <button class="list__button list__button--toggle js-done">${task.status ? "✓" : ""}</button>
-      <span class="list__text ${task.status ? "list__text--lineThrough" : ""}">${task.job}</span>
-      <button class="list__button list__button--remove js-removeJob">🗑</button>
+      htmlListString += `
+      <li class="list__item">
+        <button class="list__button list__button--toggleTask js-done">${task.status ? "✓" : ""}</button>
+        <span ${task.status ? "class=list__textLineThrough" : ""}>${task.job}</span>
+        <button class="list__button list__button--remove js-removeJob">🗑</button>
       </li>`;
     }
 
