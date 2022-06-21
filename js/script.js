@@ -9,9 +9,9 @@
     newTaskListJob.focus();
   };
 
-  const addNewJob = (newTaskListJob) => {
+  const addNewTask = (newTaskListJob) => {
     taskList.push({
-      job: newTaskListJob.value.trim(),
+      content: newTaskListJob.value.trim(),
       status: false,
     });
     clearInputElement();
@@ -19,13 +19,13 @@
     render();
   };
 
-  const removeJob = (jobIndex) => {
-    taskList.splice(jobIndex, 1);
+  const removeTask = (taskIndex) => {
+    taskList.splice(taskIndex, 1);
     render();
   };
 
-  const changeJobState = (jobIndex) => {
-    taskList[jobIndex].status = !taskList[jobIndex].status;
+  const changeTaskState = (taskIndex) => {
+    taskList[taskIndex].status = !taskList[taskIndex].status;
     render();
   };
 
@@ -39,22 +39,22 @@
       return;
     }
 
-    addNewJob(newTaskListJob);
+    addNewTask(newTaskListJob);
   };
 
   const bindEvents = () => {
     const removeButtons = document.querySelectorAll(".js-removeJob");
-    const changeJobStateButtons = document.querySelectorAll(".js-done");
+    const changeTaskStateButtons = document.querySelectorAll(".js-done");
 
-    removeButtons.forEach((removeButton, jobIndex) => {
+    removeButtons.forEach((removeButton, taskIndex) => {
       removeButton.addEventListener("click", () => {
-        removeJob(jobIndex);
+        removeTask(taskIndex);
       });
     });
 
-    changeJobStateButtons.forEach((changeJobStateButton, jobIndex) => {
-      changeJobStateButton.addEventListener("click", () => {
-        changeJobState(jobIndex);
+    changeTaskStateButtons.forEach((changeTaskStateButton, taskIndex) => {
+      changeTaskStateButton.addEventListener("click", () => {
+        changeTaskState(taskIndex);
       });
     });
   };
@@ -66,7 +66,7 @@
       htmlListString += `
       <li class="list__item">
         <button class="list__button list__button--toggleTask js-done">${task.status ? "✓" : ""}</button>
-        <span ${task.status ? "class=list__textLineThrough" : ""}>${task.job}</span>
+        <span ${task.status ? "class=list__textLineThrough" : ""}>${task.content}</span>
         <button class="list__button list__button--remove js-removeJob">🗑</button>
       </li>`;
     }
