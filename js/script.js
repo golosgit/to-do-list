@@ -65,10 +65,10 @@
   };
 
   const renderTaskList = () => {
-    let htmlListString = "";
+    let htmlString = "";
 
     for (const task of taskList) {
-      htmlListString += `
+      htmlString += `
     <li class="list__item">
       <button class="list__button list__button--toggleTask js-done">${task.status ? "✓" : ""}</button>
       <span ${task.status ? "class=list__textLineThrough" : ""}>${task.content}</span>
@@ -76,29 +76,28 @@
     </li>`;
     }
 
-    document.querySelector(".js-taskList").innerHTML = htmlListString;
+    document.querySelector(".js-taskList").innerHTML = htmlString;
   };
 
   const renderToggleTasksAndFinishAllTasksButtons = () => {
     let htmlString = "";
 
-    if (taskList.length !== 0) {
-      htmlString += `
-        <button class="secondaryHeader__hideAndFinishButtons js-toggleFinishedTasksButton">Ukryj ukończone</button>
-      `;
-
+    if (taskList.length === 0) {
       document.querySelector(".js-toggleFinishedTasks").innerHTML = htmlString;
-      let htmlListString = "";
-
-      htmlListString += `
-        <button class="secondaryHeader__hideAndFinishButtons js-markAllTasksDoneButton">Ukończ wszystkie</button>
-      `;
-
       document.querySelector(".js-markAllTasksDone").innerHTML = htmlString;
       return;
     }
 
+    htmlString = `
+        <button class="secondaryHeader__hideAndFinishButtons js-toggleFinishedTasksButton">Ukryj ukończone</button>
+      `;
+
     document.querySelector(".js-toggleFinishedTasks").innerHTML = htmlString;
+
+    htmlString = `
+        <button class="secondaryHeader__hideAndFinishButtons js-markAllTasksDoneButton">Ukończ wszystkie</button>
+      `;
+
     document.querySelector(".js-markAllTasksDone").innerHTML = htmlString;
   };
 
