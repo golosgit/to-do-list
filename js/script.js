@@ -42,15 +42,18 @@
     addNewTask(newTaskListEntry);
   };
 
-  const bindEvents = () => {
+  const bindRemoveEvent = () => {
     const removeButtons = document.querySelectorAll(".js-removeEntry");
-    const changeTaskStateButtons = document.querySelectorAll(".js-done");
 
     removeButtons.forEach((removeButton, taskIndex) => {
       removeButton.addEventListener("click", () => {
         removeTask(taskIndex);
       });
     });
+  };
+
+  const bindToggleEvent = () => {
+    const changeTaskStateButtons = document.querySelectorAll(".js-done");
 
     changeTaskStateButtons.forEach((changeTaskStateButton, taskIndex) => {
       changeTaskStateButton.addEventListener("click", () => {
@@ -73,7 +76,8 @@
 
     document.querySelector(".js-taskList").innerHTML = htmlListString;
 
-    bindEvents();
+    bindRemoveEvent();
+    bindToggleEvent();
   };
 
   const init = () => {
