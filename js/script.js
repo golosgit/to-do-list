@@ -2,20 +2,20 @@
   const taskList = [];
 
   const clearInputElement = () => {
-    document.querySelector(".js-newJob").value = "";
+    document.querySelector(".js-newEntry").value = "";
   };
 
-  const setFocus = (newTaskListJob) => {
-    newTaskListJob.focus();
+  const setFocus = (newTaskListEntry) => {
+    newTaskListEntry.focus();
   };
 
-  const addNewTask = (newTaskListJob) => {
+  const addNewTask = (newTaskListEntry) => {
     taskList.push({
-      content: newTaskListJob.value.trim(),
+      content: newTaskListEntry.value.trim(),
       status: false,
     });
     clearInputElement();
-    setFocus(newTaskListJob);
+    setFocus(newTaskListEntry);
     render();
   };
 
@@ -32,18 +32,18 @@
   const onFormSubmit = (event) => {
     event.preventDefault();
 
-    const newTaskListJob = document.querySelector(".js-newJob");
+    const newTaskListEntry = document.querySelector(".js-newEntry");
 
-    if (newTaskListJob.value.trim() === "") {
-      setFocus(newTaskListJob);
+    if (newTaskListEntry.value.trim() === "") {
+      setFocus(newTaskListEntry);
       return;
     }
 
-    addNewTask(newTaskListJob);
+    addNewTask(newTaskListEntry);
   };
 
   const bindEvents = () => {
-    const removeButtons = document.querySelectorAll(".js-removeJob");
+    const removeButtons = document.querySelectorAll(".js-removeEntry");
     const changeTaskStateButtons = document.querySelectorAll(".js-done");
 
     removeButtons.forEach((removeButton, taskIndex) => {
@@ -67,7 +67,7 @@
       <li class="list__item">
         <button class="list__button list__button--toggleTask js-done">${task.status ? "✓" : ""}</button>
         <span ${task.status ? "class=list__textLineThrough" : ""}>${task.content}</span>
-        <button class="list__button list__button--remove js-removeJob">🗑</button>
+        <button class="list__button list__button--remove js-removeEntry">🗑</button>
       </li>`;
     }
 
