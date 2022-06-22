@@ -26,6 +26,15 @@ body {
   padding: 15px 20px;
   margin-bottom: 0;
   font-size: 20px;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  grid-gap: 10px;
+}
+
+@media (max-width: 767px) {
+  .secondaryHeader {
+    grid-template-columns: 1fr;
+  }
 }
 
 .addTask {
