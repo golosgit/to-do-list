@@ -1,5 +1,5 @@
 {
-  const taskList = [];
+  let taskList = [];
 
   const clearInputElement = () => {
     document.querySelector(".js-newEntry").value = "";
@@ -10,22 +10,30 @@
   };
 
   const addNewTask = (newTaskListEntry) => {
-    taskList.push({
-      content: newTaskListEntry.value.trim(),
-      status: false,
-    });
+    taskList = [
+      ...taskList,
+      {content: newTaskListEntry.value.trim(), status: false},
+    ];
+
     clearInputElement();
     setFocus(newTaskListEntry);
-    render();
+    render(); 
   };
 
   const removeTask = (taskIndex) => {
-    taskList.splice(taskIndex, 1);
+    taskList = [
+      ...taskList.slice(0, taskIndex),
+      ...taskList.slice(taskIndex + 1),
+    ];
     render();
   };
 
   const changeTaskState = (taskIndex) => {
-    taskList[taskIndex].status = !taskList[taskIndex].status;
+    taskList = [
+      ...taskList.slice(0, taskIndex),
+      {...taskList[taskIndex], status: !taskList[taskIndex].status},
+      ...taskList.slice(taskIndex + 1),
+    ];
     render();
   };
 
