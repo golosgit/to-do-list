@@ -104,7 +104,7 @@
 
     for (const task of taskList) {
       htmlString += `
-    <li class="list__item ${(task.status && !visibilityOfFinishedTasksq) ? "list__item--hidden" : ""}">
+    <li class="list__item ${task.status && !visibilityOfFinishedTasks ? "list__item--hidden" : ""}">
       <button class="list__button list__button--toggleTask js-done">${task.status ? "✓" : ""}</button>
       <span ${task.status ? "class=list__textLineThrough" : ""}>${task.content}</span>
       <button class="list__button list__button--remove js-removeEntry">🗑</button>
@@ -122,15 +122,10 @@
       return;
     }
 
-    if (checkStatusOfAllTasks()) {
-      htmlString = `
-        <button class="secondaryHeader__hideAndFinishButtons js-markAllTasksDoneButton" disabled>Ukończ wszystkie</button>
-      `;
-    } else {
-      htmlString = `
-        <button class="secondaryHeader__hideAndFinishButtons js-markAllTasksDoneButton">Ukończ wszystkie</button>
-      `;
-    }
+    htmlString = `
+      <button class="secondaryHeader__hideAndFinishButtons js-markAllTasksDoneButton" 
+      ${checkStatusOfAllTasks() ? " disabled" : ""}>Ukończ wszystkie</button>
+    `;
     document.querySelector(".js-markAllTasksDone").innerHTML = htmlString;
   };
 
@@ -142,15 +137,10 @@
       return;
     }
 
-    if (visibilityOfFinishedTasks) {
-      htmlString = `
-        <button class="secondaryHeader__hideAndFinishButtons js-toggleVisibilityOfFinishedTasksButton">Ukryj ukończone</button>
-      `;
-    } else {
-      htmlString = `
-        <button class="secondaryHeader__hideAndFinishButtons js-toggleVisibilityOfFinishedTasksButton">Pokaż ukończone</button>
-      `;
-    }
+    htmlString = `
+      <button class="secondaryHeader__hideAndFinishButtons js-toggleVisibilityOfFinishedTasksButton">
+      ${visibilityOfFinishedTasks ? "Ukryj" : "Pokaż"} ukończone</button>
+    `;
     document.querySelector(".js-toggleFinishedTasks").innerHTML = htmlString;
   };
 
