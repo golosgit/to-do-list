@@ -37,6 +37,14 @@ body {
   }
 }
 
+.secondaryHeader__gridElement {
+  display: grid;
+}
+
+.secondaryHeader__hideAndFinishButtons {
+
+}
+
 .addTask {
   background-color: white;
   margin: 0 20px;

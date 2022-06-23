@@ -21,11 +21,12 @@
   color: #fff;
   border: 2px solid teal;
   padding: 8px;
+  transition: 1s;
 }
 
 .form__button:hover {
-  background-color: hsl(180, 100%, 30%);
-  border-color: hsl(180, 100%, 30%);
+  background-color: hsl(180, 100%, 35%);
+  border-color: hsl(180, 100%, 35%);
 }
 
 .form__button:active {

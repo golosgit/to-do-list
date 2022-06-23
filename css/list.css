@@ -30,11 +30,12 @@
 .list__button--remove {
   background-color: red;
   border: 2px solid red;
+  transition: 1s;
 }
 
 .list__button--remove:hover {
-  background-color: hsl(0, 100%, 65%);
-  border-color: hsl(0, 100%, 65%);
+  background-color: hsl(0, 100%, 75%);
+  border-color: hsl(0, 100%, 75%);
 }
 
 .list__button--remove:active {
@@ -45,11 +46,12 @@
 .list__button--toggleTask {
   background-color: green;
   border: 2px solid green;
+  transition: 1s;
 }
 
 .list__button--toggleTask:hover {
-  background-color: hsl(120, 100%, 30%);
-  border-color: hsl(120, 100%, 30%);
+  background-color: hsl(120, 100%, 35%);
+  border-color: hsl(120, 100%, 35%);
 }
 
 .list__button--toggleTask:active {
