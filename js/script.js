@@ -31,6 +31,15 @@
     render();
   };
 
+  const checkStatusOfAllTasks = () => {
+    return taskList.every(({ status }) => status);
+  };
+
+  const markAllTasksDone = () => {
+    taskList = taskList.map(({ content }) => ({ content, status: true }));
+    render();
+  };
+
   const onFormSubmit = (event) => {
     event.preventDefault();
 
@@ -64,6 +73,16 @@
     });
   };
 
+  const bindMarkAllTasksDoneEvent = () => {
+    const markAllTasksDoneButton = document.querySelector(".js-markAllTasksDoneButton");
+
+    if (markAllTasksDoneButton) {
+      markAllTasksDoneButton.addEventListener("click", () => {
+        markAllTasksDone();
+      });
+    }
+  };
+
   const renderTaskList = () => {
     let htmlString = "";
 
@@ -94,10 +113,15 @@
 
     document.querySelector(".js-toggleFinishedTasks").innerHTML = htmlString;
 
-    htmlString = `
+    if (checkStatusOfAllTasks()) {
+      htmlString = `
+        <button class="secondaryHeader__hideAndFinishButtons js-markAllTasksDoneButton" disabled>Ukończ wszystkie</button>
+      `;
+    } else {
+      htmlString = `
         <button class="secondaryHeader__hideAndFinishButtons js-markAllTasksDoneButton">Ukończ wszystkie</button>
       `;
-
+    }
     document.querySelector(".js-markAllTasksDone").innerHTML = htmlString;
   };
 
@@ -107,6 +131,7 @@
 
     bindRemoveEvent();
     bindToggleEvent();
+    bindMarkAllTasksDoneEvent();
   };
 
   const init = () => {
