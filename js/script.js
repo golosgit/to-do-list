@@ -1,5 +1,6 @@
 {
   let taskList = [];
+  let visibilityOfFinishedTasks = true;
 
   const clearInputElement = () => {
     document.querySelector(".js-newEntry").value = "";
@@ -37,6 +38,11 @@
 
   const markAllTasksDone = () => {
     taskList = taskList.map(({ content }) => ({ content, status: true }));
+    render();
+  };
+
+  const toggleVisibilityOfFinishedTasks = () => {
+    visibilityOfFinishedTasks = !visibilityOfFinishedTasks;
     render();
   };
 
@@ -83,6 +89,16 @@
     }
   };
 
+  const bindToggleVisibilityOfFinishedTasksEvent = () => {
+    const toggleVisibilityOfFinishedTasksButton = document.querySelector(".js-toggleVisibilityOfFinishedTasksButton");
+
+    if (toggleVisibilityOfFinishedTasksButton) {
+      toggleVisibilityOfFinishedTasksButton.addEventListener("click", () => {
+        toggleVisibilityOfFinishedTasks();
+      });
+    }
+  };
+
   const renderTaskList = () => {
     let htmlString = "";
 
@@ -107,10 +123,15 @@
       return;
     }
 
-    htmlString = `
-        <button class="secondaryHeader__hideAndFinishButtons js-toggleFinishedTasksButton">Ukryj ukończone</button>
+    if (visibilityOfFinishedTasks) {
+      htmlString = `
+        <button class="secondaryHeader__hideAndFinishButtons js-toggleVisibilityOfFinishedTasksButton">Ukryj ukończone</button>
       `;
-
+    } else {
+      htmlString = `
+        <button class="secondaryHeader__hideAndFinishButtons js-toggleVisibilityOfFinishedTasksButton">Pokaż ukończone</button>
+      `;
+    }
     document.querySelector(".js-toggleFinishedTasks").innerHTML = htmlString;
 
     if (checkStatusOfAllTasks()) {
@@ -132,6 +153,7 @@
     bindRemoveEvent();
     bindToggleEvent();
     bindMarkAllTasksDoneEvent();
+    bindToggleVisibilityOfFinishedTasksEvent();
   };
 
   const init = () => {
