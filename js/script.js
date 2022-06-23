@@ -114,25 +114,13 @@
     document.querySelector(".js-taskList").innerHTML = htmlString;
   };
 
-  const renderToggleTasksAndFinishAllTasksButtons = () => {
+  const renderFinishAllTasksButton = () => {
     let htmlString = "";
 
     if (taskList.length === 0) {
-      document.querySelector(".js-toggleFinishedTasks").innerHTML = htmlString;
       document.querySelector(".js-markAllTasksDone").innerHTML = htmlString;
       return;
     }
-
-    if (visibilityOfFinishedTasks) {
-      htmlString = `
-        <button class="secondaryHeader__hideAndFinishButtons js-toggleVisibilityOfFinishedTasksButton">Ukryj ukończone</button>
-      `;
-    } else {
-      htmlString = `
-        <button class="secondaryHeader__hideAndFinishButtons js-toggleVisibilityOfFinishedTasksButton">Pokaż ukończone</button>
-      `;
-    }
-    document.querySelector(".js-toggleFinishedTasks").innerHTML = htmlString;
 
     if (checkStatusOfAllTasks()) {
       htmlString = `
@@ -146,8 +134,29 @@
     document.querySelector(".js-markAllTasksDone").innerHTML = htmlString;
   };
 
+  const renderToggleVisibilityOfFinishedTasksButton = () => {
+    let htmlString = "";
+
+    if (taskList.length === 0) {
+      document.querySelector(".js-toggleFinishedTasks").innerHTML = htmlString;
+      return;
+    }
+
+    if (visibilityOfFinishedTasks) {
+      htmlString = `
+        <button class="secondaryHeader__hideAndFinishButtons js-toggleVisibilityOfFinishedTasksButton">Ukryj ukończone</button>
+      `;
+    } else {
+      htmlString = `
+        <button class="secondaryHeader__hideAndFinishButtons js-toggleVisibilityOfFinishedTasksButton">Pokaż ukończone</button>
+      `;
+    }
+    document.querySelector(".js-toggleFinishedTasks").innerHTML = htmlString;
+  };
+
   const render = () => {
-    renderToggleTasksAndFinishAllTasksButtons();
+    renderToggleVisibilityOfFinishedTasksButton();
+    renderFinishAllTasksButton();
     renderTaskList();
 
     bindRemoveEvent();
