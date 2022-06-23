@@ -104,7 +104,7 @@
 
     for (const task of taskList) {
       htmlString += `
-    <li class="list__item">
+    <li class="list__item ${(task.status && !visibilityOfFinishedTasksq) ? "list__item--hidden" : ""}">
       <button class="list__button list__button--toggleTask js-done">${task.status ? "✓" : ""}</button>
       <span ${task.status ? "class=list__textLineThrough" : ""}>${task.content}</span>
       <button class="list__button list__button--remove js-removeEntry">🗑</button>
