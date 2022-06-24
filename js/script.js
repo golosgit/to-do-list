@@ -104,11 +104,11 @@
 
     for (const task of taskList) {
       htmlString += `
-    <li class="list__item ${task.status && !visibilityOfFinishedTasks ? "list__item--hidden" : ""}">
-      <button class="list__button list__button--toggleTask js-done">${task.status ? "✓" : ""}</button>
-      <span ${task.status ? "class=list__textLineThrough" : ""}>${task.content}</span>
-      <button class="list__button list__button--remove js-removeEntry">🗑</button>
-    </li>`;
+      <li class="list__item ${task.status && !visibilityOfFinishedTasks ? "list__item--hidden" : ""}">
+        <button class="list__button list__button--toggleTask js-done">${task.status ? "✓" : ""}</button>
+        <span ${task.status ? "class=list__textLineThrough" : ""}>${task.content}</span>
+        <button class="list__button list__button--remove js-removeEntry">🗑</button>
+      </li>`;
     }
 
     document.querySelector(".js-taskList").innerHTML = htmlString;

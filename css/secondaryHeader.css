@@ -1,0 +1,41 @@
+.secondaryHeader {
+  border-bottom: 1px solid #ddd;
+  padding: 15px 20px;
+  margin-bottom: 0;
+  font-size: 20px;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  grid-gap: 25px;
+}
+
+@media (max-width: 767px) {
+  .secondaryHeader {
+    grid-template-columns: 1fr;
+    grid-gap: 15px;
+  }
+}
+
+.secondaryHeader__gridElement {
+  display: grid;
+}
+
+.secondaryHeader__hideAndFinishButtons {
+  background-color: white;
+  color: hsl(180, 100%, 20%);
+  border: none;
+  font-size: medium;
+}
+
+.secondaryHeader__hideAndFinishButtons:hover {
+  color: hsl(180, 100%, 33%);
+}
+
+.secondaryHeader__hideAndFinishButtons:active {
+  border: 2px solid #333;
+  border-radius: 2px;
+}
+
+.secondaryHeader__hideAndFinishButtons:disabled {
+  color: #bbb;
+  border: none;
+}

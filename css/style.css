@@ -21,30 +21,6 @@ body {
   margin: 0 20px;
 }
 
-.secondaryHeader {
-  border-bottom: 1px solid #ddd;
-  padding: 15px 20px;
-  margin-bottom: 0;
-  font-size: 20px;
-  display: grid;
-  grid-template-columns: 1fr auto auto;
-  grid-gap: 10px;
-}
-
-@media (max-width: 767px) {
-  .secondaryHeader {
-    grid-template-columns: 1fr;
-  }
-}
-
-.secondaryHeader__gridElement {
-  display: grid;
-}
-
-.secondaryHeader__hideAndFinishButtons {
-
-}
-
 .addTask {
   background-color: white;
   margin: 0 20px;
