@@ -23,7 +23,7 @@
     render();
   };
 
-  const changeTaskState = (taskIndex) => {
+  const toggleTaskStatus = (taskIndex) => {
     taskList = [
       ...taskList.slice(0, taskIndex),
       { ...taskList[taskIndex], status: !taskList[taskIndex].status },
@@ -70,10 +70,10 @@
   };
 
   const bindToggleEvent = () => {
-    const changeTaskStateButtons = document.querySelectorAll(".js-done");
+    const toggleTaskStatusButtons = document.querySelectorAll(".js-done");
 
-    changeTaskStateButtons.forEach((changeTaskStateButton, taskIndex) => {
-      changeTaskStateButton.addEventListener("click", () => {
+    toggleTaskStatusButtons.forEach((toggleTaskStatusButton, taskIndex) => {
+      toggleTaskStatusButton.addEventListener("click", () => {
         changeTaskState(taskIndex);
       });
     });
@@ -106,7 +106,7 @@
       htmlString += `
       <li class="list__item ${task.status && !visibilityOfFinishedTasks ? "list__item--hidden" : ""}">
         <button class="list__button list__button--toggleTask js-done">${task.status ? "✓" : ""}</button>
-        <span ${task.status ? "class=list__textLineThrough" : ""}>${task.content}</span>
+          <span ${task.status ? "class=list__textLineThrough" : ""}>${task.content}</span>
         <button class="list__button list__button--remove js-removeEntry">🗑</button>
       </li>`;
     }
@@ -123,8 +123,10 @@
     }
 
     htmlString = `
-      <button class="secondaryHeader__hideAndFinishButtons js-markAllTasksDoneButton" 
-      ${checkStatusOfAllTasks() ? " disabled" : ""}>Ukończ wszystkie</button>
+      <button 
+        class="secondaryHeader__hideAndFinishButtons js-markAllTasksDoneButton" 
+        ${checkStatusOfAllTasks() ? " disabled" : ""}>Ukończ wszystkie
+      </button>
     `;
     document.querySelector(".js-markAllTasksDone").innerHTML = htmlString;
   };
