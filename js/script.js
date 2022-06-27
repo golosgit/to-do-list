@@ -74,7 +74,7 @@
 
     toggleTaskStatusButtons.forEach((toggleTaskStatusButton, taskIndex) => {
       toggleTaskStatusButton.addEventListener("click", () => {
-        changeTaskState(taskIndex);
+        toggleTaskStatus(taskIndex);
       });
     });
   };
