@@ -22,8 +22,9 @@
 .secondaryHeader__hideAndFinishButtons {
   background-color: white;
   color: hsl(180, 100%, 20%);
-  border: none;
+  border: 2px solid transparent;
   font-size: medium;
+  transition: color 0.5s;
 }
 
 .secondaryHeader__hideAndFinishButtons:hover {

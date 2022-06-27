@@ -36,6 +36,7 @@
 .list__button--remove:hover {
   background-color: hsl(0, 100%, 75%);
   border-color: hsl(0, 100%, 75%);
+  transform: scale(1.1);
 }
 
 .list__button--remove:active {
