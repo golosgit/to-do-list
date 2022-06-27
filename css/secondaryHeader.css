@@ -24,7 +24,7 @@
   color: hsl(180, 100%, 20%);
   border: 2px solid transparent;
   font-size: medium;
-  transition: color 0.5s;
+  transition: color 0.3s;
 }
 
 .secondaryHeader__hideAndFinishButtons:hover {
@@ -38,5 +38,6 @@
 
 .secondaryHeader__hideAndFinishButtons:disabled {
   color: #bbb;
-  border: none;
+  border: 2px solid transparent;
+  cursor: not-allowed;
 }

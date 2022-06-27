@@ -21,7 +21,7 @@
   color: #fff;
   border: 2px solid teal;
   padding: 8px;
-  transition: 1s;
+  transition: 0.3s;
 }
 
 .form__button:hover {

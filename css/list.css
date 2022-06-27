@@ -30,7 +30,7 @@
 .list__button--remove {
   background-color: red;
   border: 2px solid red;
-  transition: 1s;
+  transition: 0.3s;
 }
 
 .list__button--remove:hover {
@@ -47,7 +47,7 @@
 .list__button--toggleTask {
   background-color: green;
   border: 2px solid green;
-  transition: 1s;
+  transition: 0.3s;
 }
 
 .list__button--toggleTask:hover {
