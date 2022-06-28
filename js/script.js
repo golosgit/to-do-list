@@ -83,9 +83,7 @@
     const markAllTasksDoneButton = document.querySelector(".js-markAllTasksDoneButton");
 
     if (markAllTasksDoneButton) {
-      markAllTasksDoneButton.addEventListener("click", () => {
-        markAllTasksDone();
-      });
+      markAllTasksDoneButton.addEventListener("click", markAllTasksDone);
     }
   };
 
@@ -93,9 +91,7 @@
     const toggleVisibilityOfFinishedTasksButton = document.querySelector(".js-toggleVisibilityOfFinishedTasksButton");
 
     if (toggleVisibilityOfFinishedTasksButton) {
-      toggleVisibilityOfFinishedTasksButton.addEventListener("click", () => {
-        toggleVisibilityOfFinishedTasks();
-      });
+      toggleVisibilityOfFinishedTasksButton.addEventListener("click", toggleVisibilityOfFinishedTasks);
     }
   };
 
